@@ -8,15 +8,21 @@ void setup() {
 }
 
 void draw() {
-  
+
   ball.step();
-  
+
   background(0);
-  ellipse(ball.x, ball.y, 25, 25);
+  ellipse(ball.getX(), ball.getY(), ball.getDiameter(), ball.getDiameter()); //Error is here, but actual error is elsewhere
+  
 } //End of draw()
 
-
 void mouseClicked() {
-  ball.targetX = mouseX;
-  ball.targetY = mouseY;
+  
+  //Introducing an error, when collaborating, easy to make
+  //ball.X = mouseX; 
+  //ball.Y = mouseY; 
+
+  ball.targetX = mouseX; //Uses default access modifiers
+  ball.targetY = mouseY; //Uses default access modifiers
+  
 } //End of mouseClicked()
