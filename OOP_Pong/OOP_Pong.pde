@@ -1,6 +1,6 @@
 //Refer to From Processing to Java
 
-Ball ball = new Ball(250, 250);
+Ball ball = new Ball(250, 250, 25);
 
 void setup() {
   size(500, 500);
@@ -13,9 +13,10 @@ void draw() {
   
   background(0);
   ellipse(ball.x, ball.y, 25, 25);
-}
+} //End of draw()
+
 
 void mouseClicked() {
-  ball.targetX = mouseX; //Uses default access modifiers
-  ball.targetY = mouseY; //Uses default access modifiers
-}
+  ball.targetX = mouseX;
+  ball.targetY = mouseY;
+} //End of mouseClicked()
