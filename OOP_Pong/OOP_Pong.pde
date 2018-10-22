@@ -1,28 +1,22 @@
 //Refer to From Processing to Java
 
-Ball ball = new Ball(250, 250, 25);
+private Boolean start = false;
+private Star stars = new Star(250, 250, 25);
 
-void setup() {
-  size(500, 500);
+public void setup() {
+  size(500, 600);
+  screenSizeChecker();
   ellipseMode(CENTER);
-}
+} //End of setup()
 
-void draw() {
+public void draw() {
+  startStop();
 
-  ball.step();
+  if (start==true) {
+    
+    background(0);
 
-  background(0);
-  ellipse(ball.getX(), ball.getY(), ball.getDiameter(), ball.getDiameter()); //Error is here, but actual error is elsewhere
-  
-} //End of draw()
-
-void mouseClicked() {
-  
-  //Introducing an error, when collaborating, easy to make
-  //ball.X = mouseX; 
-  //ball.Y = mouseY; 
-
-  ball.targetX = mouseX; //Uses default access modifiers
-  ball.targetY = mouseY; //Uses default access modifiers
-  
-} //End of mouseClicked()
+    ellipse(stars.getX(), stars.getY(), stars.getRadius(), stars.getRadius());
+    
+  } //End of startStop
+} //End draw()
