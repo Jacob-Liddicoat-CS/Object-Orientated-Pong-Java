@@ -2,6 +2,9 @@ class Star {
   private float x;
   private float y;
   private float radius;
+  
+  public static int starCount = 1; //Number of stars or Pong Balls that will be drawn
+  public static int maxRadius = 20; //can this be a ratio of width with error checking of different geometery
 
   public Star(float x, float y, float radius) {
     this.x = x;
