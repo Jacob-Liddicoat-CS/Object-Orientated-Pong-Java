@@ -1,6 +1,6 @@
 void screenSizeChecker () {
   
-  String fullSize = "Width=" + displayWidth + "; Height=" + displayHeight; //Another example of String Concatenation, used locally in setup()
+  final String fullSize = "Width=" + displayWidth + "; Height=" + displayHeight; //Another example of String Concatenation, used locally in setup()
   
   //Check size on actual display monitor
   if (width > displayWidth) { 
