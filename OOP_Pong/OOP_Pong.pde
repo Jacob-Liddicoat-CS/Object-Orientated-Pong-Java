@@ -29,6 +29,10 @@ public void draw() {
 } //End draw()
 
 public void mouseClicked() {
+  
+  Star.targetX = mouseX;
+  Star.targetY = mouseY;
+  
   for (int i = 0; i < stars.length; i++) {
     createStars(i);
   }
