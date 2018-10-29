@@ -1,7 +1,7 @@
-void screenSizeChecker () {
-  
-  final String fullSize = "Width=" + displayWidth + "; Height=" + displayHeight; //Another example of String Concatenation, used locally in setup()
-  
+private void screenSizeChecker () {
+
+  final String fullSize = "Width=" + displayWidth + "; Height=" + displayHeight; //Another example of String Concatenation, used locally here
+
   //Check size on actual display monitor
   if (width > displayWidth) { 
     println ("ERROR: Change Pong Table size-width, it is too big."); 

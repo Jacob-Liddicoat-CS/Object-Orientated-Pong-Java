@@ -1,4 +1,5 @@
-void createStars(int i) {
-  //Notice the code for drawing one
-  stars[i] = new Star(random(width), random(height), random(Star.getmaxRadius()));
-} 
+private void createStars() {
+  for (int i = 0; i < stars.length; i++) {
+    stars[i] = new Star(int(random(width)), int(random(height)), int(random(Star.maxRadius)));
+  }
+}  

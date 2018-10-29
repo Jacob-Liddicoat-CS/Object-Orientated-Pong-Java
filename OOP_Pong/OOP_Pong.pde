@@ -1,7 +1,8 @@
 //Refer to From Processing to Java
 
-private Boolean start = false;
-private Star[] stars = new Star[Star.getstarCount()]; //only varaibles is how many stars to draw
+private Boolean startKeyboard = false;
+private Boolean startMouse = false;
+private Star[] stars = new Star[Star.starCount]; //only varaibles is how many stars to draw
 
 public void setup() {
   size(500, 600);
@@ -9,31 +10,44 @@ public void setup() {
   ellipseMode(CENTER);
 
   //Need drawing of ball before mouseClick(), two lines of the same code
+  createStars();
   for (int i = 0; i < stars.length; i++) {
-    createStars(i);
+    stars[i].targetX = int (random (width) ); 
+    stars[i].targetY = int (random (height) );
   }
+  println ("Remember to press the SPACEBAR to start the program");
 } //End of setup()
 
 public void draw() {
-  startStop();
 
-  if (start==true) {
+  //Listener for Clicking on the Canvas to Activate Program
+  if (mousePressed == true) {
+    startMouse = true;
+  }
 
+  //Must click on the Canvas to Start the Program
+  if (startMouse == true) {
     background(0);
+  }
 
-    //Notice the array-code for drawing one
+  startStop(); //Update Start Variable or Quit Program
+
+  //Must press the SPACEBAR to start the Program
+  if (startKeyboard==true) {
     for (int i = 0; i < stars.length; i++) {
+      stars[i].step();
       ellipse(stars[i].getX(), stars[i].getY(), stars[i].getRadius(), stars[i].getRadius());
     }
   } //End of startStop
 } //End draw()
 
 public void mouseClicked() {
-  
-  Star.targetX = mouseX;
-  Star.targetY = mouseY;
-  
-  for (int i = 0; i < stars.length; i++) {
-    createStars(i);
-  }
+  //Listener for Keyboard Key to Start the Program
+  if (startKeyboard == true) {
+    createStars();
+    for (int i = 0; i < stars.length; i++) {
+      stars[i].targetX = mouseX; 
+      stars[i].targetY = mouseY;
+    }
+  } //End of IF
 } //End of mouseClicked()

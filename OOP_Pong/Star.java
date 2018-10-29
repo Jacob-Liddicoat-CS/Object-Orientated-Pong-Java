@@ -1,22 +1,25 @@
-class Star {
-  private float x;
-  private float y;
-  private float radius;
+public class Star {
+  private int x;
+  private int y;
+  private int radius;
 
-  public int targetX;
+  public int targetX; //Since mouseX keyword, should be public everywhere
   public int targetY;
-  private static int starCount = 10; //Number of stars or Pong Balls that will be drawn
-  private static int maxRadius = 20; //can this be a ratio of width with error checking of different geometery
 
-  public Star(float x, float y, float radius) {
+  public static int starCount = 50; //Number of stars or Pong Balls that will be drawn
+  public static int maxRadius = 20; //can this be a ratio of width with error checking of different geometery
+
+  public Star(int x, int y, int radius) {
     this.x = x;
     this.y = y;
     this.radius = radius;
+    this.targetX = x; //starting value must match initial instance value
+    this.targetY = y; //starting value must match initial instance value
   } //End of Constructor
-  targetX = x;
-  targetY = y;
 
-  void step() {
+  //Moving Each Ball
+  public void step() {
+
     if (x < targetX) {
       x++;
     } else {
@@ -30,19 +33,16 @@ class Star {
     }
   } //End of step
 
-  public float getX() {
+  public int getX() {
     return x;
   }
-  public float getY() {
+  
+  public int getY() {
     return y;
   }
-  public float getRadius() {
+  
+  public int getRadius() {
     return radius;
   }
-  public static int getstarCount() {
-    return starCount;
-  }
-  public static int getmaxRadius() {
-    return maxRadius;
-  }
-} //End of Start
+   
+} //End of Start Class
