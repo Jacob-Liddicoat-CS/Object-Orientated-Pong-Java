@@ -21,7 +21,7 @@ class Paddle {
   paddle[1] = height/paddleHeightRatio; 
   player[0] = 0;
   player[1] = height/2 - height/paddleHeightRatio/2;
-  int section = width / paddle[0];
+  int section = width / paddleWidthRatio;
   player[2] = width*(section-1)/section;
   player[3] = height/2;
   // Code to bounce off of paddles, does not interfer with score code since at different X-axis values, just before goal area
