@@ -1,5 +1,5 @@
 class LeftPaddle {
-  
+
   int paddleWidthRatio;
   int paddleHeightRatio = 10;
   int [] paddle = {0, 0}; //Paddle width and height

@@ -1,6 +1,6 @@
 void score () {
   //Printing Score to the Canvas and resetting game
-  
+
   //Ball Movement within Pong Table after scoring
   if (ballX == 0+(ballDiameter/2) || ballX == width-(ballDiameter/2)) { //Score for Player 2, note the index
     if (ballX == 0+(ballDiameter/2)) { //Player 2 Score
@@ -9,14 +9,14 @@ void score () {
     if (ballX == width-(ballDiameter/2)) { //Player 1 Score
       score[0] += 1;
     }
-    
+
     //Resetting the Ball Position
     ballX = ballStartX;
     ballY = ballStartY;
-    
+
     //Randomizes Initial Ball Movement
     ballRandom.Random();
-    
+
     //Resetting the ARROW Controlled Paddle to the center
     player[1] = height/2 - height/paddleHeightRatio/2;
   }

@@ -31,10 +31,10 @@ class Ball () {
     ballDiameter = width/70;
     ballSpeedX = 1;
     ballSpeedY = 1;
-    
+
     ballRandom.Random();
   } //End gameStart
-  
+
   void gamePlay() {
     ballMoveX = ballSpeedX*directionX;
     ballMoveY = ballSpeedY*directionY;
