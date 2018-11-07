@@ -42,7 +42,7 @@ class startStop () {
       println ("ERROR: The Canvas is a Square causing problems with the ball bouncing. Width & Height are " + width + ", " + height); //Used to compare against manually entered canvas size
       println ("Please adjust on line, function 'size'.");
       println ("Do not size larger than the monitor: ", fullSize);
-      exit(); //Used to exit the canvas, incorrectly puts the user reponsible for the coding
+      exit();
     }
   }
-}
+} //End of Class
