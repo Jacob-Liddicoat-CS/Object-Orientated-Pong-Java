@@ -7,6 +7,10 @@ class Ball () {
   private final int ballDiameter;
   private int ballMoveX;
   private int ballMoveY;
+  private int xSpeed;
+  private int ySpeed;
+  private int directionX;
+  private int directionY;
 
   private static int ballCount = 5;
 
@@ -24,20 +28,31 @@ class Ball () {
     ballStartY = height/2;
     ballX = ballStartX;
     ballY = ballStartY;
-    ballDiameter = width/70; //Must pick one dimension for both ellipse diameters, for a circle
-
-    ballSpeedX = int (random (-2, 2));
-    while (ballSpeedX == 0) {
-      ballSpeedX = int (random (-2, 2));
-    }
-    ballSpeedY = int (random (-2, 2));
-    while (ballSpeedY == 0) {
-      ballSpeedY = int (random (-2, 2));
-    }
+    ballDiameter = width/70;
+    ballSpeedX = 1;
+    ballSpeedY = 1;
+    
+    ballRandom.Random();
   } //End gameStart
+  
+  void gamePlay() {
+    ballMoveX = ballSpeedX*directionX;
+    ballMoveY = ballSpeedY*directionY;
+    ballx += ballMoveX;
+    ballY += ballMoveY;
+  }
 
   //Getters and Setters
   public static int getBallCount() {
     return ballCount;
+  }
+  public int getBallX() {
+    return ballX;
+  }
+  public int getBallY() {
+    return ballY;
+  }
+  public int getBallDiameter() {
+    return ballDiameter;
   }
 } //End of Class
