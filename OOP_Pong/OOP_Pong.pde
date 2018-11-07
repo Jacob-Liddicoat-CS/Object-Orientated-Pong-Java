@@ -1,27 +1,35 @@
 //Refer to From Processing to Java
 
 private Ball[] balls = new Ball[Ball.getBallCount()];
+private Firework[] fireworks = new Firework[Firework.getcount()];
 
 void setup() {
   size(500, 600);
   startStop.screenSizeChecker();
   Ball.gameStart();
+  for (int i=0; i < fireworks.length; i++) {
+    fireworks[i] = new Firework(width, height);
+  }
 }
 
 void draw() {
   startStop.buttons()
-  
-   if (startStop.getStart() == true) { //Bug
+
+    if (startStop.getStart() == true) { //Bug
     background(0);
     fill(0); //Black
     ellipse (ball.getBallX(), ball.getBallY, ball.getballDiameter, ball.getballDiameter);
-    //rect();
-    //rect();
+    rect(player[0], player[1], paddle[0], paddle[1]);
+    rect(player[2], player[3], paddle[0], paddle[1]);
+    for (int i= 0; i < fireworks.length; i++) {
+      fireworks[i].step(); //Calculate Arithmetic
+      fireworks[i].draw(); //Draw to the Canvas
+    }
   }
 }
 
 void playGame () {
-   //Calcualting "next" ball position
+  //Calcualting "next" ball position
   //Section necessary when calling functions so passing current arguements
   ballX += ballMoveX; //origonally x+1 operation
   ballY += ballMoveY; //origonally x+1 operation
@@ -39,7 +47,7 @@ void playGame () {
   if (ballY == 0+(ballDiameter/2) || ballY == height-(ballDiameter/2) ) {
     ballMoveY = ballMoveY * (-1);
   }
-  
+
   //Code to Move Paddles, keyboard and mouseX&Y key variables
   //Player 1 Movement
   if (keyPressed == true & key == CODED) { //alternate is void keyPressed(){}, always contains the most recent keyboard key stroke
@@ -71,7 +79,7 @@ void playGame () {
   if (mouseY >= height - paddle[1]) {
     player[3] = height - paddle[1] - 1;
   }
-  
+
   //Draws Ball
   ellipse(ball.getBallX, ball.getBallY, ball.getballDiameter, ball.getballDiameter);
 
@@ -80,4 +88,9 @@ void playGame () {
   rect(player[0], player[1], paddle[0], paddle[1]);
   rect(player[2], player[3], paddle[0], paddle[1]);
   fill(0); //Reseting to Black
+}
+void mouseClicked() {
+  for (int i=0; i < fireworks.length; i++) {
+    fireworks[i] = new Firework (width, height);
+  }
 }
