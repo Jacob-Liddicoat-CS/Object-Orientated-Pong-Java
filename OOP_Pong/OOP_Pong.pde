@@ -6,8 +6,6 @@ void setup() {
   size(500, 600);
   startStop.screenSizeChecker();
   Ball.gameStart();
-  LeftPaddle.gameStart();
-  RightPaddle.gameStart();
 }
 
 void draw() {
@@ -16,9 +14,9 @@ void draw() {
    if (startStop.getStart() == true) { //Bug
     background(0);
     fill(0); //Black
-    ellipse (ballX, ballY, ballDiameter, ballDiameter);
-    rect();
-    rect();
+    ellipse (ball.getBallX(), ball.getBallY, ball.getballDiameter, ball.getballDiameter);
+    //rect();
+    //rect();
   }
 }
 
@@ -75,7 +73,7 @@ void playGame () {
   }
   
   //Draws Ball
-  ellipse();
+  ellipse(ball.getBallX, ball.getBallY, ball.getballDiameter, ball.getballDiameter);
 
   //Drawing Paddles
   fill(#FF00FF); //Purple
