@@ -14,12 +14,11 @@ void score () {
     ballX = ballStartX;
     ballY = ballStartY;
     
+    //Randomizes Initial Ball Movement
+    ballRandom.Random();
+    
     //Resetting the ARROW Controlled Paddle to the center
     player[1] = height/2 - height/paddleHeightRatio/2;
-    
-    //Old Debugging Code
-    //println ("Score Board is: " + score[0] + " Player-1" + "     " + score[1] + " Player-2");
-    //println("Middle: " + player[1]);
   }
 
   textSize(0.1*width);
