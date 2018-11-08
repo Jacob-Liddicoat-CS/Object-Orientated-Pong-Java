@@ -1,12 +1,12 @@
 class Firework {
   //Variables
-  float x;
-  float y;
-  color c;
-  float diameter;
-  float xSpeed;
-  float ySpeed;
-  float gravity;
+  private final float x;
+  private final float y;
+  private final color c;
+  private final float diameter;
+  private final float xSpeed;
+  private final float ySpeed;
+  private final float gravity;
   private static int count = 25; //Static number for amount of fireworks
 
   //Constructor
