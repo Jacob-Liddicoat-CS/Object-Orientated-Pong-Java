@@ -18,6 +18,10 @@ class startStop () {
     }
   } //End of Void Buttons
 
+  public static getStart() {
+    return start;
+  }
+
   void screenSizeChecker () {
 
     final String fullSize = "Width=" + displayWidth + "; Height=" + displayHeight; //Another example of String Concatenation, used locally here
@@ -40,8 +44,5 @@ class startStop () {
       println ("Do not size larger than the monitor: ", fullSize);
       exit();
     }
-  }
-  public static int getStart() {
-    return start;
   }
 } //End of Class
