@@ -23,7 +23,7 @@ class Ball () {
     ballDiameter = int(width/70);
     this.ballSpeedX = int (random (1, 5));
     this.ballSpeedY = int (random (1, 5));
-    this.c = color(int(random(255)), int(random(255)), int(random(255)));
+    this.c = color(int(random(50, 200)), int(random(50, 200)), int(random(50, 200)));
   } //End of Constructor
 
   void draw() {
