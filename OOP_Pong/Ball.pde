@@ -61,12 +61,22 @@ class Ball {
         ballX = 0+(ballDiameter/4);
         ballXGoal = true;
         ballY = ballY; //Assignment to itself, in the scoring area that becomes a marker for Fireworks and Scoreboard
+        Firework[] fireworks = new Firework[4*5]; //Ratio of Max Pong Balls (related to Ball List), copied for other side too
+        for (int i=0; i < fireworks.length; i++) {
+          fireworks[i] = new Firework(ballX, ballY);
+          fireworks[i].draw();
+        }
       }
       if (ballX > width-(ballDiameter/4)) {
         scorePlayer2++;
         ballX = width-(ballDiameter/4);
         ballXGoal = true;
         ballY = ballY;
+        Firework[] fireworks = new Firework[4*5]; //Ratio of Max Pong Balls (related to Ball List), copied for other side too
+        for (int i=0; i < fireworks.length; i++) {
+          fireworks[i] = new Firework(ballX, ballY);
+          fireworks[i].draw();
+        }
       }
     }
 
@@ -94,5 +104,4 @@ class Ball {
     println("\nPlayer 1:", scorePlayer1, "\tPlayer 2:", scorePlayer2);
     print("\tBall X:", ballX, "\t Ball Y:", ballY);
   } //End of gamePlay()
-  
 } //End of Class
