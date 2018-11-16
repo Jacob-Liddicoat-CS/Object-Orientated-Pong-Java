@@ -1,48 +1,41 @@
-//class Firework {
-//  //Variables
-//  private final float x;
-//  private final float y;
-//  private final color c;
-//  private final float diameter;
-//  private final float xSpeed;
-//  private final float ySpeed;
-//  private final float gravity;
-//  private static int count = 25; //Static number for amount of fireworks
+class Firework {
+  //Variables
+  float x;
+  float y;
+  color c;
+  float diameter;
+  float xSpeed;
+  float ySpeed;
+  float gravity;
+  //static int count = 25; //Static number for amount of firworks
 
-//  //Constructor
-//  Firework (float width, float height) {
-//    //X&Y are values when Pong Ball scores
-//    this.x = mouseX; //random (width)
-//    println(x);
-//    this.y = mouseY; //random (height)
-//    println(y);
-//    this.c = color( int(random(255)), int(random(255)), int(random(255)) );
-//    println(c);
-//    this.diameter = random(width*1/25);
-//    println (diameter);
-//    this.xSpeed = random(-5, 5);
-//    this.ySpeed = random(-5, 5);
-//    gravity = 0.5;
-//  } //End of Constructor
+  //Constructor
+  Firework (float width, float height) {
+    //X&Y are values when Pong Ball scores
+    this.x = mouseX; //random (width); actually needs to be the X&Y of the score
+    println(x);
+    this.y = mouseY; //random (height); actually needs to be the X&Y of the score
+    println(y);
+    this.c = color( int(random(255)), int(random(255)), int(random(255)) );
+    println(c);
+    this.diameter = random(width*1/25);
+    println (diameter);
+    this.xSpeed = random(-5, 5);
+    this.ySpeed = random(-5, 5);
+    gravity = 0.5;
+  } //End of Constructor
 
-//  //Procedures or Functions
-//  void draw() {
-//    fill(c);
-//    ellipse(x, y, diameter, diameter);
-//  }
+  //Procedures or Functions
+  void draw() {
+    fill(c);
+    //Increasing x & y by their speeds so the ball moves
+    x += xSpeed;
+    y += ySpeed;
+    //Changing Gravity of the firework, not changing the origonal position
+    //Important concept, even though math works
+    ySpeed += gravity;
+    ellipse(x, y, diameter, diameter);
+  }
 
-//  void step() {
-//    //Increasing x & y by their speeds so the ball moves
-//    x += xSpeed;
-//    y += ySpeed;
-
-//    //Changing Gravity of the firework, not changing the original position
-//    //Important concept, even though math works
-//    ySpeed += gravity;
-//  }
-
-//  //Getter and Setters
-//  public static int getcount() {
-//    return count;
-//  }
-//}
+  //Getter and Setters
+}
