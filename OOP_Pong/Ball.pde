@@ -1,17 +1,17 @@
 class Ball {
 
-  int ballX;
-  int ballY;
+  private int ballX;
+  private int ballY;
   Boolean ballXGoal;
-  final int ballStartX;
-  final int ballStartY;
-  final int ballDiameter;
-  int ballMoveX;
-  int ballMoveY;
-  int directionX;
-  int directionY;
-  int ballSpeedX;
-  int ballSpeedY;
+  private final int ballStartX;
+  private final int ballStartY;
+  private final int ballDiameter;
+  private int ballMoveX;
+  private int ballMoveY;
+  private int directionX;
+  private int directionY;
+  private int ballSpeedX;
+  private int ballSpeedY;
   color c;
   int scorePlayer1 = 0;
   int scorePlayer2 = 0;
