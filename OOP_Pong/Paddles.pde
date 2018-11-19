@@ -1,6 +1,5 @@
 class Paddles {
 
-
 int paddleWidthRatio; //Variable is being re peated in setup() figuring good width of paddle, half of ballDiameter
 //Reason: do not bounce of the edge of the paddle
 int paddleHeightRatio = 10;
@@ -18,4 +17,21 @@ player[1] = height/2 - height/paddleHeightRatio/2; //Middle minus half the paddl
 int section = width / paddleWidthRatio; // Local Variable: calculate the divisions of the paddle and draw in the last one
 player[2] = width*(section-1)/section; // *(paddlewidthRatio-1)/paddlewidthRatio, except looking for very last section in variable geometry
 player[3] = height/2;
+}
+
+//Getters and Setters
+public int getpaddleWidthRatio() {
+  return paddleWidthRatio;
+}
+public int getpaddleHeightRatio() {
+  return paddleHeightRatio;
+}
+public int getplayer[1]() {
+  return player[1];
+}
+public int getscore[0]() {
+  return score[0];
+}
+public int getscore[1]() {
+  return score[1];
 }

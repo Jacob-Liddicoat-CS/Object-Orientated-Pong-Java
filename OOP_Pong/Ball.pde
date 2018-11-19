@@ -39,7 +39,7 @@ class Ball {
 
   //Game Start
   void gameStart() {
-    //This sets the random for the ball, commented out as an intentional mistake
+    //This sets the random for the ball
     //Change this to be a ball speed
     directionX = int (random (-2, 2));
     while (directionX == 0) {
@@ -104,4 +104,18 @@ class Ball {
     println("\nPlayer 1:", scorePlayer1, "\tPlayer 2:", scorePlayer2);
     print("\tBall X:", ballX, "\t Ball Y:", ballY);
   } //End of gamePlay()
+  
+  //Getters and Setters
+  public int getballStartX() {
+    return ballStartX;
+  }
+  public int getballStartY() {
+    return ballStartY;
+  }
+  public int getballX() {
+    return ballX;
+  }
+  public int getballY() {
+    return ballY;
+  }
 } //End of Class

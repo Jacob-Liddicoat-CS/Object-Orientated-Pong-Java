@@ -38,4 +38,13 @@ class Firework {
   }
 
   //Getter and Setters
+  public float getx() {
+    return x;
+  }
+  public float gety() {
+    return y;
+  }
+  public color getc() {
+    return c;
+  }
 }
