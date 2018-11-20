@@ -2,7 +2,9 @@ class Ball {
 
   private int ballX;
   private int ballY;
-  Boolean ballXGoal;
+  private Boolean ballXGoal;
+  private Boolean ballXGoalOnce;
+  private Boolean createNextBall;
   private final int ballStartX;
   private final int ballStartY;
   private final int ballDiameter;
@@ -12,9 +14,9 @@ class Ball {
   private int directionY;
   private int ballSpeedX;
   private int ballSpeedY;
-  color c;
-  int scorePlayer1 = 0;
-  int scorePlayer2 = 0;
+  private color c;
+  private int scorePlayer1 = 0;
+  private int scorePlayer2 = 0;
 
   //int ballCount = 5; //Only variable that needs to be coded first
 
@@ -25,21 +27,23 @@ class Ball {
     this.ballX = ballStartX;
     this.ballY = ballStartY;
     this.ballXGoal = false;
+    this.ballXGoalOnce = false;
+    this.createNextBall = false;
     ballDiameter = int(width/70); //Must pick one dimension for both ellipse diameters, for a circle
     this.ballSpeedX = int (random (1, 5));
     this.ballSpeedY = int (random (1, 5));
     this.c = color(int(random(50, 200)), int(random(50, 200)), int(random(50, 200)));
   } //End of Constructor
 
-  void draw() {
+  void ballDraw() {
     //In Pure-Java these variables will need Getters and Setters
     fill(c);
     ellipse(ballX, ballY, ballDiameter, ballDiameter);
   } //End of draw()
 
   //Game Start
-  void gameStart() {
-    //This sets the random for the ball
+  void gameStart() { //Completes the Ball Constructor
+    //This sets the random for the ball, commented out as an intentional mistake
     //Change this to be a ball speed
     directionX = int (random (-2, 2));
     while (directionX == 0) {
@@ -60,24 +64,18 @@ class Ball {
         scorePlayer1 = scorePlayer1 + 1;
         ballX = 0+(ballDiameter/4);
         ballXGoal = true;
+        ballXGoalOnce = true;
+        createNextBall = true;
         ballY = ballY; //Assignment to itself, in the scoring area that becomes a marker for Fireworks and Scoreboard
-        Firework[] fireworks = new Firework[4*5]; //Ratio of Max Pong Balls (related to Ball List), copied for other side too
-        for (int i=0; i < fireworks.length; i++) {
-          fireworks[i] = new Firework(ballX, ballY);
-          fireworks[i].draw();
-        }
       }
-      if (ballX > width-(ballDiameter/4)) {
-        scorePlayer2++;
-        ballX = width-(ballDiameter/4);
-        ballXGoal = true;
-        ballY = ballY;
-        Firework[] fireworks = new Firework[4*5]; //Ratio of Max Pong Balls (related to Ball List), copied for other side too
-        for (int i=0; i < fireworks.length; i++) {
-          fireworks[i] = new Firework(ballX, ballY);
-          fireworks[i].draw();
-        }
-      }
+    }
+    if (ballX > width-(ballDiameter/4)) {
+      scorePlayer2++;
+      ballX = width-(ballDiameter/4);
+      ballXGoal = true;
+      ballXGoalOnce = true; //Passing to Fireworks
+      createNextBall = true;
+      ballY = ballY;
     }
 
     //Top and Bottom Boundary Bounce, accounting for increased ball movement per "step"
@@ -101,21 +99,7 @@ class Ball {
     }
 
     //Console Log tracking Scoring and BallX & BallY Positions
-    println("\nPlayer 1:", scorePlayer1, "\tPlayer 2:", scorePlayer2);
-    print("\tBall X:", ballX, "\t Ball Y:", ballY);
+    //println("\nPlayer 1:", scorePlayer1, "\tPlayer 2:", scorePlayer2);
+    //print("\tBall X:", ballX, "\t Ball Y:", ballY);
   } //End of gamePlay()
-  
-  //Getters and Setters
-  public int getballStartX() {
-    return ballStartX;
-  }
-  public int getballStartY() {
-    return ballStartY;
-  }
-  public int getballX() {
-    return ballX;
-  }
-  public int getballY() {
-    return ballY;
-  }
 } //End of Class
