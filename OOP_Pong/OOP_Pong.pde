@@ -8,6 +8,13 @@ int ballCount = 0;
 int Score1=0, Score2=0; //Placeholder variables until ScoreBoard Class created, FOR Loop using these should move to ScoreBoard Class
 Boolean endGame = false; //Game will end when Fifth Ball is attempted
 int fireworkX, fireworkY;
+int paddleWidthRatio; //Variable is being re peated in setup() figuring good width of paddle, half of ballDiameter
+//Reason: do not bounce of the edge of the paddle
+int paddleHeightRatio = 10;
+int [] paddle = {0, 0}; //Paddle width and height
+int [] player = new int [4]; //Alternate way of initializing an Array, for paddles
+//0: Player1_X, 1:Player1_Y, 2:Player2_X, 3:Player2_Y
+int [] score = {0, 0}; //Player score 1 & 2
 //int score1, score2; //Tracking scorePlayer1 & 2
 
 void setup() {
@@ -65,6 +72,12 @@ if (balls[ballCount-1].ballXGoalOnce == true) { //Ball Scores connected to Firew
     balls[i].gamePlay();
     balls[i].ballDraw();
   }
+  
+  //Drawing Paddles
+  fill(#FF00FF); //Purple
+  rect(player[0], player[1], paddle[0], paddle[1]);
+  rect(player[2], player[3], paddle[0], paddle[1]);
+  fill(0); //Reseting to Black
 
   if (endGame == true) {
     score();
