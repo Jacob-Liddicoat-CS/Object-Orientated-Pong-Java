@@ -1,7 +1,7 @@
 class Rectangle extends Shape {
-  float width;
-  float height;
-  color c;
+  private float width;
+  private float height;
+  private color c;
 
   Rectangle(float x, float y, float width, float height, color c) {
     super(x, y);

@@ -1,13 +1,19 @@
 class Circle extends Shape {
+  private float radius;
+  private color c;
 
-  Circle(float x, float y, float diameter, float diameter, color c) {
+  Circle(float x, float y, float radius, color c) {
     super(x, y);
-    this.diameter = diameter;
-    this.c =c;
+    this.radius = radius;
+    this.c = c;
   }
 
   void draw() {
     fill(c);
-    ellipse(x, y, diameter, diameter);
+    ellipse(x, y, radius, radius);
+  }
+
+  void step() {
+    y++;
   }
 }
