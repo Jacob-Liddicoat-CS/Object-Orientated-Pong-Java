@@ -1,7 +1,7 @@
-ArrayList<Shape> shapes = new ArrayList<Shape>();
+private ArrayList<Shape> shapes = new ArrayList<Shape>();
 private Circle cHex;
 
-void setup() {
+public void setup() {
   size (500, 500);
 
   Rectangle rHex = new Rectangle(width*1/4, height*1/4, width*2/4, height*2/4, #00FFEC);
@@ -14,7 +14,7 @@ void setup() {
   
 }
 
-void draw() {
+public void draw() {
   background (0); //Black
   
   //Draw Static Shapes
@@ -29,10 +29,10 @@ void draw() {
 }
 
 abstract class Shape {
-  float x;
-  float y;
+  public float x;
+  public float y;
 
-  Shape(float x, float y) {
+  private Shape(float x, float y) {
     this.x = x;
     this.y = y;
   }
