@@ -1,4 +1,4 @@
-class Circle extends Shape {
+class Ball extends Shape {
   private color c;
   private float radius;
   private int directionX;
@@ -6,7 +6,7 @@ class Circle extends Shape {
   private int xSpeed;
   private int ySpeed;
 
-  private Circle(float x, float y, float radius, color c) {
+  private Ball(float x, float y, float radius, color c) {
     super(x, y);
     this.radius = radius;
     this.c = c;
