@@ -1,4 +1,4 @@
-public ArrayList<Shape> shapes = new ArrayList<Shape>();
+public ArrayList <Shape> shapes = new ArrayList<Shape>();
 private static boolean [] keys = new boolean [4];
 public Ball ball;
 public Paddle leftPaddle;
@@ -18,14 +18,14 @@ public void setup() {
 
 public void draw() {
   background (0); //Black
-  
+
   for (int i = 0; i < shapes.size; i++) {
     shapes.get(i).draw();
   }
   leftPaddle.draw();
   rightPaddle.draw();
-
-abstract class Shape {
+  
+  abstract class Shape {
   public float x;
   public float y;
 
@@ -34,6 +34,6 @@ abstract class Shape {
     this.y = y;
   }
 
-  abstract void draw();
+abstract void draw();
 }
 }
