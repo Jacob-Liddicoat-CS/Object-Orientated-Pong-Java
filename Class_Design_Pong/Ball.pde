@@ -1,26 +1,13 @@
 class Ball extends Shape {
   private color c;
   private float radius;
-  private int directionX;
-  private int directionY;
-  private int xSpeed;
-  private int ySpeed;
+  private float xSpeed = random(-5, 5);
+  private float ySpeed = random(-5, 5);
 
   private Ball(float x, float y, float radius, color c) {
     super(x, y);
     this.radius = radius;
     this.c = c;
-    directionX = int (random (-2, 2));
-    while (directionX == 0) {
-      directionX = int (random (-2, 2));
-    }
-    directionY = int (random (-2, 2));
-    while (directionY == 0) {
-      directionY = int (random (-2, 2));
-    }
-    this.xSpeed = int (random (1, 5));
-    this.ySpeed = int (random (1, 5));
-    
   }
 
   public void draw() {
@@ -29,18 +16,41 @@ class Ball extends Shape {
   }
 
   private void step() {
+    while (xSpeed > -2 && xSpeed < 2) {
+      xSpeed = random(-6, 6);
+    }
+    while (ySpeed > -2 && ySpeed < 2) {
+      ySpeed = random(-6, 6);
+    }
     x += xSpeed;
     y += ySpeed;
-    
-    //Top and Bottom Boundary Bounce, accounting for increased ball movement per "step"
-    if ( (y > 0 && y <= 0+(radius*2) ) || ( y < height && y >= height-(radius*2) )   ) { //ballY bounce area wider than below
-      directionY = directionY * (-1);
+
+    if (y - radius < 0 || y +radius > height) {
+      ySpeed *= -1;
     }
-    if (y < 0+(radius) ) { //Redraw to catch when the bounce has not happened in previous IF
-      y = 0+(radius);
+    if (x + radius > leftPaddle.getX() && x - radius < leftPaddle.getX() + leftPaddle.getpaddleWidth() && y > leftPaddle.getY() && y < leftPaddle.getY() + leftPaddle.getpaddleHeight()) {
+      xSpeed *= -1;
     }
-    if (y > height-(radius) ) { //Redraw to catch when the bounce has not happened in first IF
-      y = height-(y);
+    if (x - radius < rightPaddle.getX() + rightPaddle.getpaddleWidth() && x + radius > rightPaddle.getX() && y > rightPaddle.getY() && y < rightPaddle.getY() + rightPaddle.getpaddleHeight()) {
+      xSpeed *= -1;
     }
+  }
+  public float getX() {
+    return x;
+  }
+  public float getY() {
+    return y;
+  }
+  public float getRadius() {
+    return radius;
+  }
+  public float getC() {
+    return c;
+  }
+  public float getXspeed() {
+    return xSpeed;
+  }
+  public float getYspeed() {
+    return ySpeed;
   }
 }
