@@ -24,15 +24,18 @@ class Ball extends Shape {
     }
     x += xSpeed;
     y += ySpeed;
-
-    if (y - radius < 0 || y +radius > height) {
-      ySpeed *= -1;
+    
+    if (x - radius < 0) {
+      ClassDesignPong.scores[1] ++;
+      println(ClassDesignPong.scores[0]+" "+ClassDesignPong.scores[1]);
+      x = width/2;
+      y = height/2;
     }
-    if (x + radius > leftPaddle.getX() && x - radius < leftPaddle.getX() + leftPaddle.getpaddleWidth() && y > leftPaddle.getY() && y < leftPaddle.getY() + leftPaddle.getpaddleHeight()) {
-      xSpeed *= -1;
-    }
-    if (x - radius < rightPaddle.getX() + rightPaddle.getpaddleWidth() && x + radius > rightPaddle.getX() && y > rightPaddle.getY() && y < rightPaddle.getY() + rightPaddle.getpaddleHeight()) {
-      xSpeed *= -1;
+    if (x + radius > width) {
+      ClassDesignPong.scores[0] ++;
+      println(ClassDesignPong.scores[0]+" "+ClassDesignPong.scores[1]);
+      x = width/2;
+      y = height/2;
     }
   }
   public float getX() {
