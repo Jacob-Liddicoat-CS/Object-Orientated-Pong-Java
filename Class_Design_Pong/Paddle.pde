@@ -31,24 +31,6 @@ class Paddle extends Shape {
     }
   }
 
-  void keyPressed() {
-    if (keyCode == UP) {
-      keys[0] = true;
-    }
-
-    if (keyCode == DOWN) {
-      keys[1] = true;
-    }
-
-    if (key == 'w' || key == 'W') {
-      keys[2] = true;
-    }
-
-    if (key == 's' || key == 'S') {
-      keys[3] = true;
-    }
-  }
-
 
   void PaddleMove() {
     if (keys[0] == true) {
@@ -66,10 +48,10 @@ class Paddle extends Shape {
   }
 
   //Getters and Setters
-  public float getX() {
+  public float getpaddleX() {
     return x;
   }
-  public float getY() {
+  public float getpaddleY() {
     return y;
   }
   public float getpaddleWidth() {
