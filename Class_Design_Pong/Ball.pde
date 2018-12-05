@@ -3,11 +3,19 @@ class Ball extends Shape {
   private float radius;
   private float xSpeed = random(-5, 5);
   private float ySpeed = random(-5, 5);
+  private Boolean ballXGoal;
+  private Boolean ballXGoalOnce;
+  private Boolean createNextBall;
+  private int scorePlayer1 = 0;
+  private int scorePlayer2 = 0;
 
   private Ball(float x, float y, float radius, color c) {
     super(x, y);
     this.radius = radius;
     this.c = c;
+    this.ballXGoal = false;
+    this.ballXGoalOnce = false;
+    this.createNextBall = false;
   }
 
   public void draw() {
@@ -25,17 +33,25 @@ class Ball extends Shape {
     x += xSpeed;
     y += ySpeed;
     
-    if (x - radius < 0) {
-      ClassDesignPong.scores[1] ++;
-      println(ClassDesignPong.scores[0]+" "+ClassDesignPong.scores[1]);
-      x = width/2;
-      y = height/2;
+    //Scoring on Left and Right, reseting variables to decrease system resources
+    //See Notes for how to operate goal area
+    if (x < 0+(radius/2) || x > width-(radius/2)) { //Error: -(ballDiameter/2)
+      if (x < 0+(radius/2)) {
+        scorePlayer1 = scorePlayer1 + 1;
+        x = 0+(radius/2);
+        ballXGoal = true;
+        ballXGoalOnce = true;
+        createNextBall = true;
+        y = y; //Assignment to itself, in the scoring area that becomes a marker for Fireworks and Scoreboard
+      }
     }
-    if (x + radius > width) {
-      ClassDesignPong.scores[0] ++;
-      println(ClassDesignPong.scores[0]+" "+ClassDesignPong.scores[1]);
-      x = width/2;
-      y = height/2;
+    if (x > width-(radius/2)) {
+      scorePlayer2++;
+      x = width-(radius/2);
+      ballXGoal = true;
+      ballXGoalOnce = true; //Passing to Fireworks
+      createNextBall = true;
+      y = y;
     }
   }
   public float getX() {

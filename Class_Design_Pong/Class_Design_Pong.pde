@@ -1,37 +1,32 @@
 public ArrayList <Shape> shapes = new ArrayList<Shape>();
 private static boolean [] keys = new boolean [4];
-public Ball ball;
+public Ball[] ball = new Ball[5];
+public int ballCount = 0;
+private int Score1 = 0, Score2 = 0;
 public Paddle leftPaddle;
 public Paddle rightPaddle;
-static int [] scores = new int [2];
-public float radius = getRadius();
-
-Shape Score1 = new Shape(50, 50) {
-  public void draw() {
-    text(ClassDesignPong.scores[0], x, y);
-  }
-};
-
-Shape Score2 = new Shape(400, 50) {
-  public void draw() {
-    text(ClassDesignPong.scores[1], x, y);
-  }
-};
+public static int [] score = {0, 0};
+public float radius;
 
 public void setup() {
   size (500, 600);
 
   leftPaddle = new Paddle(0, radius - height/5, radius, height/10, #00FFEC);
   rightPaddle = new Paddle((radius - 1)/radius, height/2, radius, height/10, color(random(255), random(255), random(255) ) ); 
-  ball = new Ball(width/2, height/2, width/50, #FF6803);
+  ball[0] = new Ball(width/2, height/2, width/50, #FF6803);
+  ballCount = 1;
 
-  shapes.add(Score1);
-  shapes.add(Score2);
-  shapes.add(ball);
+  shapes.add(leftPaddle);
+  shapes.add(rightPaddle);
+  shapes.add(ball[0]);
 }
 
 public void draw() {
   background (0); //Black
+  if (ballCount >= ball.length) { //Array out of Bounds
+    exit();
+  }
+  ball[0].draw();
   leftPaddle.draw();
   rightPaddle.draw();
 }
