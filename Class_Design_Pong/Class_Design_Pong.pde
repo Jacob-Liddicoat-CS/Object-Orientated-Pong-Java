@@ -26,7 +26,8 @@ public void draw() {
   if (ballCount >= ball.length) { //Array out of Bounds
     exit();
   }
-  ball[0].draw();
+  ball[0].step();
+  shapes.get(2).draw();
   leftPaddle.draw();
   rightPaddle.draw();
 }
