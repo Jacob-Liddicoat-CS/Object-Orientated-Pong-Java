@@ -53,6 +53,16 @@ class Ball extends Shape {
       createNextBall = true;
       y = y;
     }
+    //Top and Bottom Boundary Bounce, accounting for increased ball movement per "step"
+    if ( (y > 0 && y <= 0+(radius*2) ) || ( y < height && y >= height-(radius*2) )   ) { //ballY bounce area wider than below
+      ySpeed = ySpeed * (-1);
+    }
+    if (y < 0+(radius) ) { //Redraw to catch when the bounce has not happened in previous IF
+      y = 0+(radius);
+    }
+    if (y > height-(radius) ) { //Redraw to catch when the bounce has not happened in first IF
+      y = height-(radius);
+    }
   }
   public float getX() {
     return x;
